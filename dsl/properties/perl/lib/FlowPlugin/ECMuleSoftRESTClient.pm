@@ -640,8 +640,7 @@ sub augmentRequest {
         $r = $self->_createApplicationAugmentRequest($r, $params);
     } elsif ($self->method eq 'getApplications') {
         $r = $self->_getApplicationsAugmentRequest($r, $params);
-    }
-    elsif ($self->method eq 'getApplication') {
+    } elsif ($self->method eq 'getApplication') {
         $r = $self->_getApplicationAugmentRequest($r, $params);
     }
 
