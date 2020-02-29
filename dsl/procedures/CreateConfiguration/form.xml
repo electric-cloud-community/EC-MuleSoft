@@ -1,0 +1,85 @@
+<!--
+    This form is generated automatically from the parameters pluginspec.
+    Please not not edit this file manually as it will be regenerated.
+-->
+
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/help?s=Administration&amp;ss=Plugins#CreateConfiguration</help>
+  <formElement>
+    <type>entry</type>
+    <property>config</property>
+    <required>1</required>
+    <documentation>Unique name for the configuration</documentation>
+    <label>Configuration Name:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>desc</property>
+    <required>0</required>
+    <documentation>Configuration description</documentation>
+    <label>Description:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>endpoint</property>
+    <required>1</required>
+    <htmlDocumentation>REST API Endpoint</htmlDocumentation>
+    <label>REST Endpoint:</label>
+    <value>https://anypoint.mulesoft.com</value>
+  </formElement>
+  <formElement>
+    <type>credential</type>
+    <property>bearer_credential</property>
+    <required>1</required>
+    <htmlDocumentation>Password to connect to ...</htmlDocumentation>
+    <label>Password:</label>
+    <attachedAsParameterToStep>createConfiguration</attachedAsParameterToStep>
+    <credentialType>secret</credentialType>
+    <passwordLabel>Password</passwordLabel>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>username</property>
+    <required>1</required>
+    <documentation>User Name to connect to ...</documentation>
+    <label>User Name:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>httpProxyUrl</property>
+    <required>0</required>
+    <documentation>A proxy server URL that should be used for connections.</documentation>
+    <label>HTTP Proxy:</label>
+  </formElement>
+  <formElement>
+    <type>credential</type>
+    <property>proxy_credential</property>
+    <required>0</required>
+    <documentation>Username and password for proxy.</documentation>
+    <label>Proxy Authorization:</label>
+    <attachedAsParameterToStep>createConfiguration</attachedAsParameterToStep>
+    <passwordLabel>Proxy password</passwordLabel>
+    <retypePasswordLabel>Retype Proxy Password</retypePasswordLabel>
+    <userNameLabel>Proxy Username</userNameLabel>
+  </formElement>
+  <formElement>
+    <type>select</type>
+    <property>debugLevel</property>
+    <required>0</required>
+    <documentation>This option sets debug level for logs. If info is selected, only summary information will be shown, for debug, there will be some debug information and for trace the whole requests and responses will be shown.</documentation>
+    <label>Debug Level:</label>
+    <option>
+      <name>Info</name>
+      <value>0</value>
+    </option>
+    <option>
+      <name>Debug</name>
+      <value>1</value>
+    </option>
+    <option>
+      <name>Trace</name>
+      <value>2</value>
+    </option>
+    <value>0</value>
+  </formElement>
+</editor>

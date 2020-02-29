@@ -1,0 +1,171 @@
+pluginInfo:
+  # This is default sample specification
+  # Feel free to change it
+  # Call flowpdk showdoc pluginspec to see the list of available fields and their description
+  pluginName: 'EC-MuleSoft'
+  version: '1.0.0'
+  description: 'MuleSoft Integration using CloudHub API'
+  author: 'Shaohua Wen <swen@cloudbees.com>'
+  supportUrl: 'none'
+  category: 'Utilities'
+  shell: 'ec-perl'
+
+# REST-backed plugin configuration
+configuration:
+  parameters:
+  -
+    name: username
+    label: User Name
+    required: true
+    type: entry
+    documentation: User Name to connect to ...
+  checkConnection: false
+  restConfigInfo:
+    endpointLabel: 'REST Endpoint'
+    defaultEndpointValue: 'https://anypoint.mulesoft.com'
+    headers:
+      Accept: 'application/json'
+    authSchemes:
+      bearer:
+        passwordLabel: 'Password'
+        description: 'Password to connect to ...'
+  hasProxySupport: true
+  hasDebugLevel: true
+
+
+restClient:
+  userAgent: Cloudbees Flow
+  language: perl
+  endpoints:
+    - methodName: getOrganizationId
+      httpMethod: GET
+      url: /accounts/api/me
+      
+    - methodName: getEnvironments
+      httpMethod: GET
+      url: /accounts/api/organizations/{{organizationId}}/environments
+      parameters:
+        - name: organizationId
+          in: path
+          
+    - methodName: getApplications
+      httpMethod: GET
+      url: /cloudhub/api/applications
+      parameters:
+        - name: environmentId
+        
+    - methodName: getApplication
+      httpMethod: GET
+      url: /cloudhub/api/applications/{{domain}}
+      parameters:
+        - name: domain
+          in: path
+        - name: environmentId
+
+procedures:
+-
+  name: Create Application
+  description: 'Create a new application.'
+  hasConfig: true
+  shell: 'ec-perl'
+  parameters:
+  -
+    name: environmentID
+    documentation: Your Environment ID
+    required: false
+    type: entry
+    label: Your Environment ID
+  -
+    name: domain
+    documentation: Your Application Name
+    required: true
+    type: entry
+    label: Your Application Name
+    restParamInfo:
+      in: body
+  -
+    name: muleVersion
+    documentation: mule Version, e.g. 3.9.1
+    required: true
+    type: entry
+    label: Mule Version
+    restParamInfo:
+      in: body
+  -
+    name: region
+    documentation: region, e.g. us-east-1
+    required: true
+    type: entry
+    label: region
+    restParamInfo:
+      in: body
+  -
+    name: workers
+    documentation: Workers, e.g. 1
+    required: true
+    type: entry
+    label: Workers
+    restParamInfo:
+      in: body
+  -
+    name: workerType
+    documentation: Worker Type, e.g. Medium
+    required: true
+    type: entry
+    label: Worker Type
+    restParamInfo:
+      in: body
+  -
+    name: persistentQueues
+    documentation: Persistent Queues
+    required: true
+    type: checkbox
+    value: false
+    checkedValue: true
+    uncheckedValue: false
+    label: Persistent Queues
+    restParamInfo:
+      in: body
+  -
+    name: multitenanted
+    documentation: Multitenanted
+    required: true
+    type: checkbox
+    value: false
+    checkedValue: true
+    uncheckedValue: false
+    label: Multitenanted
+    restParamInfo:
+      in: body
+  -
+    name: vpnEnabled
+    documentation: vpnEnabled
+    required: true
+    type: checkbox
+    value: false
+    checkedValue: true
+    uncheckedValue: false
+    label: vpn Enabled
+    restParamInfo:
+      in: body
+  -
+    name: monitoringAutoRestart
+    documentation: Monitoring Auto Restart
+    required: true
+    type: checkbox
+    value: false
+    checkedValue: true
+    uncheckedValue: false
+    label: Monitoring Auto Restart
+    restParamInfo:
+      in: body
+  outputParameters:
+  -
+    name: restResult
+    description: Rest Call Result
+    isRestOutputParam: true
+  # Connects REST endpoint to the plugin procedure
+  restProcedureInfo:
+    url: '/cloudhub/api/applications'
+    methodName: 'createApplication'
+    httpMethod: 'POST'

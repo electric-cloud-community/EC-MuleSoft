@@ -1,0 +1,98 @@
+<!--
+    This form is generated automatically from the parameters pluginspec.
+    Please not not edit this file manually as it will be regenerated.
+-->
+<editor>
+  <help>/commander/pages/@PLUGIN_NAME@/help?s=Administration&amp;ss=Plugins#CreateApplication</help>
+  <formElement>
+    <type>entry</type>
+    <property>config</property>
+    <configuration>1</configuration>
+    <propertyReference>/plugins/@PLUGIN_NAME@/project/ec_plugin_cfgs</propertyReference>
+    <required>1</required>
+    <documentation>Previously defined configuration for the plugin</documentation>
+    <label>Configuration Name:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>environmentID</property>
+    <required>0</required>
+    <documentation>Your Environment ID</documentation>
+    <label>Your Environment ID:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>domain</property>
+    <required>1</required>
+    <documentation>Your Application Name</documentation>
+    <label>Your Application Name:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>muleVersion</property>
+    <required>1</required>
+    <documentation>mule Version, e.g. 3.9.1</documentation>
+    <label>Mule Version:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>region</property>
+    <required>1</required>
+    <documentation>region, e.g. us-east-1</documentation>
+    <label>region:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>workers</property>
+    <required>1</required>
+    <documentation>Workers, e.g. 1</documentation>
+    <label>Workers:</label>
+  </formElement>
+  <formElement>
+    <type>entry</type>
+    <property>workerType</property>
+    <required>1</required>
+    <documentation>Worker Type, e.g. Medium</documentation>
+    <label>Worker Type:</label>
+  </formElement>
+  <formElement>
+    <type>checkbox</type>
+    <property>persistentQueues</property>
+    <required>1</required>
+    <documentation>Persistent Queues</documentation>
+    <label>Persistent Queues:</label>
+    <value>false</value>
+    <checkedValue>true</checkedValue>
+    <uncheckedValue>false</uncheckedValue>
+  </formElement>
+  <formElement>
+    <type>checkbox</type>
+    <property>multitenanted</property>
+    <required>1</required>
+    <documentation>Multitenanted</documentation>
+    <label>Multitenanted:</label>
+    <value>false</value>
+    <checkedValue>true</checkedValue>
+    <uncheckedValue>false</uncheckedValue>
+  </formElement>
+  <formElement>
+    <type>checkbox</type>
+    <property>vpnEnabled</property>
+    <required>1</required>
+    <documentation>vpnEnabled</documentation>
+    <label>vpn Enabled:</label>
+    <value>false</value>
+    <checkedValue>true</checkedValue>
+    <uncheckedValue>false</uncheckedValue>
+  </formElement>
+  <formElement>
+    <type>checkbox</type>
+    <property>monitoringAutoRestart</property>
+    <required>1</required>
+    <documentation>Monitoring Auto Restart</documentation>
+    <label>Monitoring Auto Restart:</label>
+    <value>false</value>
+    <checkedValue>true</checkedValue>
+    <uncheckedValue>false</uncheckedValue>
+  </formElement>
+</editor>
