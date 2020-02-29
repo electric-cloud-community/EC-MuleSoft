@@ -532,6 +532,8 @@ sub getApplication {
 
 # monitoringAutoRestart: in body
 
+# properties: in body
+
 sub createApplication {
     my ($self, %params) = @_;
 
@@ -571,6 +573,8 @@ sub createApplication {
 
         'monitoringAutoRestart' => $params{ 'monitoringAutoRestart' },
 
+        'properties' => $params{ 'properties' },
+
     };
     logDebug($payload);
 
@@ -583,7 +587,7 @@ sub createApplication {
     my $response = $self->makeRequest('POST', $uri, $query, $payload, $headers, \%params);
     return $response;
 }
-## DO NOT EDIT THIS BLOCK === rest client ends, checksum: d274551bfb7e474400d3fbc5e9a3457c ===
+## DO NOT EDIT THIS BLOCK === rest client ends, checksum: 1c38c9c9850cc3159c058af63ccc10ad ===
 sub getAccessToken {
         my ($self, %params) = @_;
 

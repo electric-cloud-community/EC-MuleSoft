@@ -95,4 +95,15 @@
     <checkedValue>true</checkedValue>
     <uncheckedValue>false</uncheckedValue>
   </formElement>
+  <formElement>
+    <type>textarea</type>
+    <property>properties</property>
+    <required>1</required>
+    <documentation>properties</documentation>
+    <label>properties:</label>
+    <value>{
+  "key1":"value1"
+}
+</value>
+  </formElement>
 </editor>

@@ -31,6 +31,7 @@ sub pluginInfo {
 # Parameter: vpnEnabled
 # Parameter: monitoringAutoRestart
 # Parameter: environmentID
+# Parameter: properties
 sub createApplication {
     my ($pluginObject) = @_;
 
@@ -51,6 +52,7 @@ sub createApplication {
         'vpnEnabled' => $params->{'vpnEnabled'},
         'monitoringAutoRestart' => $params->{'monitoringAutoRestart'},
         'environmentID' => $params->{'environmentID'},
+        'properties' => decode_json($params->{'properties'}),
     );
     my $response = $ECMuleSoftRESTClient->getAccessToken(%restParams);
     my $application = eval {

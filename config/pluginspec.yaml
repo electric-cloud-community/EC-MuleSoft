@@ -159,6 +159,18 @@ procedures:
     label: Monitoring Auto Restart
     restParamInfo:
       in: body
+  -
+    name: properties
+    documentation: properties
+    required: true
+    type: textarea
+    label: properties
+    value: |
+      {
+        "key1":"value1"
+      }
+    restParamInfo:
+      in: body
   outputParameters:
   -
     name: restResult
